@@ -4,7 +4,9 @@
 A simple server consists of two APIs
 
 - `POST /users`
-    > used to populate the mongodb with dummy users data
+    > used to populate the mongodb with dummy users data,  
+    you don't need to send any data with the POST request.  
+    Just hit this end-point with an empty request body, while the mongodb connected and it will be automatically populated.
 
 - `GET /users`
     > used to fetch users data  
