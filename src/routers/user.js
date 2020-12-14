@@ -46,18 +46,21 @@ router.get("/users", async (req, res) => {
     const match = {};
     // getting sort value from query string
     const sort = {};
-    
+
     // matching by first_name
     if (req.query.first_name) {
-      match.firstName = req.query.first_name;
+      const searchRegEx = new RegExp(`^${req.query.first_name}`, "i");
+      match.firstName = searchRegEx;
     }
     // matching by last_name
     if (req.query.last_name) {
-      match.lastName = req.query.last_name;
+      const searchRegEx = new RegExp(`^${req.query.last_name}`, "i");
+      match.lastName = searchRegEx;
     }
     // matching by email
     if (req.query.email) {
-      match.email = req.query.email;
+      const searchRegEx = new RegExp(`^${req.query.email}`, "i");
+      match.email = searchRegEx;
     }
     // matching by email
     if (req.query.gender) {
@@ -65,7 +68,7 @@ router.get("/users", async (req, res) => {
     }
     // matching by created Date
     if (req.query.createdAt) {
-      match.createdAt = req.query.createdAt;
+      match.createdAt = { $gte: req.query.createdAt };
     }
 
     if (req.query.sortBy) {
