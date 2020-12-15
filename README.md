@@ -24,3 +24,15 @@ A simple server consists of two APIs
     we can sort by any property for example createdAt  
     `GET /users?sortBy=createdAt:desc`  
     `GET /users?sortBy=createdAt:asc`
+
+
+# Examples
+
+- Fetching All Users  
+`GET /users`
+
+- Fetching first 10 users (1st page of 10)
+`GET /users?limit=10&skip=0`
+
+- Fetching second 10 users (2nd page of 10) their first name state with 'm'
+`GET /users?limit=10&skip=1&first_name=m`
